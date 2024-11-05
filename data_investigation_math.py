@@ -40,7 +40,7 @@ def process_large_tsv_in_chunks(file_path, chunk_size=10000):
                 chunk = []  # Reset the chunk
 
             # Print progress for large files
-            if i % 10000 == 0:
+            if i % 100000 == 0:
                 print(f'Processing line {i}')
 
         # Process the final chunk if there are remaining rows
@@ -61,10 +61,13 @@ def process_large_tsv_in_chunks(file_path, chunk_size=10000):
     return df
 
 # Use the function to read and process the TSV file
-df = process_large_tsv_in_chunks('BindingDB_All.tsv', chunk_size=10000)
+df = process_large_tsv_in_chunks('../BindingDB_All.tsv', chunk_size=10000)
 
 # Optionally show a few rows or save the DataFrame
 print(df.head())
 
 
+#%% 
+
+print(df.columns)
 
