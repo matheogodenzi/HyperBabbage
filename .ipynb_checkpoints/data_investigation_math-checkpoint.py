@@ -60,7 +60,6 @@ def process_large_tsv_in_chunks(file_path, chunk_size=10000):
 
     return df
 
-start_time_2 = time.time()
 # Use the function to read and process the TSV file
 df = process_large_tsv_in_chunks('../BindingDB_All.tsv', chunk_size=10000)
 
@@ -68,23 +67,7 @@ df = process_large_tsv_in_chunks('../BindingDB_All.tsv', chunk_size=10000)
 print(df.head())
 
 
-df.columns = df.iloc[0]
-df = df.drop(0)
-df = df.loc[:, ~df.columns.isna()]
+#%% 
 
-# Record the end time
-end_time_2 = time.time()
-# Calculate and print the processing time
-processing_time_2 = end_time_2 - start_time_2
-print(f"Time taken to process the file in chunks: {processing_time_2:.2f} seconds")
-
-
-#%%
-df_col = list(df.columns)
-
-tr = df.iloc[0:3,0:3]
-
-#%%
-
-df["BindingDB Ligand Name"].head()
+print(df.columns)
 
