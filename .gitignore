@@ -1,2 +1,5 @@
 BindingDB_All_3D.sdf
 keys.json
+data/*
+full database.xml
+drugbank_all_full_database.xml.zip
