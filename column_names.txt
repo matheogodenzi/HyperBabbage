@@ -1,0 +1,194 @@
+BindingDB Reactant_set_id
+Ligand SMILES
+Ligand InChI
+Ligand InChI Key
+BindingDB MonomerID
+BindingDB Ligand Name
+Target Name
+Target Source Organism According to Curator or DataSource
+Ki (nM)
+IC50 (nM)
+Kd (nM)
+EC50 (nM)
+kon (M-1-s-1)
+koff (s-1)
+pH
+Temp (C)
+Curation/DataSource
+Article DOI
+BindingDB Entry DOI
+PMID
+PubChem AID
+Patent Number
+Authors
+Institution
+Link to Ligand in BindingDB
+Link to Target in BindingDB
+Link to Ligand-Target Pair in BindingDB
+Ligand HET ID in PDB
+PDB ID(s) for Ligand-Target Complex
+PubChem CID
+PubChem SID
+ChEBI ID of Ligand
+ChEMBL ID of Ligand
+DrugBank ID of Ligand
+IUPHAR_GRAC ID of Ligand
+KEGG ID of Ligand
+ZINC ID of Ligand
+Number of Protein Chains in Target (>1 implies a multichain complex)
+BindingDB Target Chain Sequence
+PDB ID(s) of Target Chain
+UniProt (SwissProt) Recommended Name of Target Chain
+UniProt (SwissProt) Entry Name of Target Chain
+UniProt (SwissProt) Primary ID of Target Chain
+UniProt (SwissProt) Secondary ID(s) of Target Chain
+UniProt (SwissProt) Alternative ID(s) of Target Chain
+UniProt (TrEMBL) Submitted Name of Target Chain
+UniProt (TrEMBL) Entry Name of Target Chain
+UniProt (TrEMBL) Primary ID of Target Chain
+UniProt (TrEMBL) Secondary ID(s) of Target Chain
+UniProt (TrEMBL) Alternative ID(s) of Target Chain
+BindingDB Target Chain Sequence.1
+PDB ID(s) of Target Chain.1
+UniProt (SwissProt) Recommended Name of Target Chain.1
+UniProt (SwissProt) Entry Name of Target Chain.1
+UniProt (SwissProt) Primary ID of Target Chain.1
+UniProt (SwissProt) Secondary ID(s) of Target Chain.1
+UniProt (SwissProt) Alternative ID(s) of Target Chain.1
+UniProt (TrEMBL) Submitted Name of Target Chain.1
+UniProt (TrEMBL) Entry Name of Target Chain.1
+UniProt (TrEMBL) Primary ID of Target Chain.1
+UniProt (TrEMBL) Secondary ID(s) of Target Chain.1
+UniProt (TrEMBL) Alternative ID(s) of Target Chain.1
+BindingDB Target Chain Sequence.2
+PDB ID(s) of Target Chain.2
+UniProt (SwissProt) Recommended Name of Target Chain.2
+UniProt (SwissProt) Entry Name of Target Chain.2
+UniProt (SwissProt) Primary ID of Target Chain.2
+UniProt (SwissProt) Secondary ID(s) of Target Chain.2
+UniProt (SwissProt) Alternative ID(s) of Target Chain.2
+UniProt (TrEMBL) Submitted Name of Target Chain.2
+UniProt (TrEMBL) Entry Name of Target Chain.2
+UniProt (TrEMBL) Primary ID of Target Chain.2
+UniProt (TrEMBL) Secondary ID(s) of Target Chain.2
+UniProt (TrEMBL) Alternative ID(s) of Target Chain.2
+BindingDB Target Chain Sequence.3
+PDB ID(s) of Target Chain.3
+UniProt (SwissProt) Recommended Name of Target Chain.3
+UniProt (SwissProt) Entry Name of Target Chain.3
+UniProt (SwissProt) Primary ID of Target Chain.3
+UniProt (SwissProt) Secondary ID(s) of Target Chain.3
+UniProt (SwissProt) Alternative ID(s) of Target Chain.3
+UniProt (TrEMBL) Submitted Name of Target Chain.3
+UniProt (TrEMBL) Entry Name of Target Chain.3
+UniProt (TrEMBL) Primary ID of Target Chain.3
+UniProt (TrEMBL) Secondary ID(s) of Target Chain.3
+UniProt (TrEMBL) Alternative ID(s) of Target Chain.3
+BindingDB Target Chain Sequence.4
+PDB ID(s) of Target Chain.4
+UniProt (SwissProt) Recommended Name of Target Chain.4
+UniProt (SwissProt) Entry Name of Target Chain.4
+UniProt (SwissProt) Primary ID of Target Chain.4
+UniProt (SwissProt) Secondary ID(s) of Target Chain.4
+UniProt (SwissProt) Alternative ID(s) of Target Chain.4
+UniProt (TrEMBL) Submitted Name of Target Chain.4
+UniProt (TrEMBL) Entry Name of Target Chain.4
+UniProt (TrEMBL) Primary ID of Target Chain.4
+UniProt (TrEMBL) Secondary ID(s) of Target Chain.4
+UniProt (TrEMBL) Alternative ID(s) of Target Chain.4
+BindingDB Target Chain Sequence.5
+PDB ID(s) of Target Chain.5
+UniProt (SwissProt) Recommended Name of Target Chain.5
+UniProt (SwissProt) Entry Name of Target Chain.5
+UniProt (SwissProt) Primary ID of Target Chain.5
+UniProt (SwissProt) Secondary ID(s) of Target Chain.5
+UniProt (SwissProt) Alternative ID(s) of Target Chain.5
+UniProt (TrEMBL) Submitted Name of Target Chain.5
+UniProt (TrEMBL) Entry Name of Target Chain.5
+UniProt (TrEMBL) Primary ID of Target Chain.5
+UniProt (TrEMBL) Secondary ID(s) of Target Chain.5
+UniProt (TrEMBL) Alternative ID(s) of Target Chain.5
+BindingDB Target Chain Sequence.6
+PDB ID(s) of Target Chain.6
+UniProt (SwissProt) Recommended Name of Target Chain.6
+UniProt (SwissProt) Entry Name of Target Chain.6
+UniProt (SwissProt) Primary ID of Target Chain.6
+UniProt (SwissProt) Secondary ID(s) of Target Chain.6
+UniProt (SwissProt) Alternative ID(s) of Target Chain.6
+UniProt (TrEMBL) Submitted Name of Target Chain.6
+UniProt (TrEMBL) Entry Name of Target Chain.6
+UniProt (TrEMBL) Primary ID of Target Chain.6
+UniProt (TrEMBL) Secondary ID(s) of Target Chain.6
+UniProt (TrEMBL) Alternative ID(s) of Target Chain.6
+BindingDB Target Chain Sequence.7
+PDB ID(s) of Target Chain.7
+UniProt (SwissProt) Recommended Name of Target Chain.7
+UniProt (SwissProt) Entry Name of Target Chain.7
+UniProt (SwissProt) Primary ID of Target Chain.7
+UniProt (SwissProt) Secondary ID(s) of Target Chain.7
+UniProt (SwissProt) Alternative ID(s) of Target Chain.7
+UniProt (TrEMBL) Submitted Name of Target Chain.7
+UniProt (TrEMBL) Entry Name of Target Chain.7
+UniProt (TrEMBL) Primary ID of Target Chain.7
+UniProt (TrEMBL) Secondary ID(s) of Target Chain.7
+UniProt (TrEMBL) Alternative ID(s) of Target Chain.7
+BindingDB Target Chain Sequence.8
+PDB ID(s) of Target Chain.8
+UniProt (SwissProt) Recommended Name of Target Chain.8
+UniProt (SwissProt) Entry Name of Target Chain.8
+UniProt (SwissProt) Primary ID of Target Chain.8
+UniProt (SwissProt) Secondary ID(s) of Target Chain.8
+UniProt (SwissProt) Alternative ID(s) of Target Chain.8
+UniProt (TrEMBL) Submitted Name of Target Chain.8
+UniProt (TrEMBL) Entry Name of Target Chain.8
+UniProt (TrEMBL) Primary ID of Target Chain.8
+UniProt (TrEMBL) Secondary ID(s) of Target Chain.8
+UniProt (TrEMBL) Alternative ID(s) of Target Chain.8
+BindingDB Target Chain Sequence.9
+PDB ID(s) of Target Chain.9
+UniProt (SwissProt) Recommended Name of Target Chain.9
+UniProt (SwissProt) Entry Name of Target Chain.9
+UniProt (SwissProt) Primary ID of Target Chain.9
+UniProt (SwissProt) Secondary ID(s) of Target Chain.9
+UniProt (SwissProt) Alternative ID(s) of Target Chain.9
+UniProt (TrEMBL) Submitted Name of Target Chain.9
+UniProt (TrEMBL) Entry Name of Target Chain.9
+UniProt (TrEMBL) Primary ID of Target Chain.9
+UniProt (TrEMBL) Secondary ID(s) of Target Chain.9
+UniProt (TrEMBL) Alternative ID(s) of Target Chain.9
+BindingDB Target Chain Sequence.10
+PDB ID(s) of Target Chain.10
+UniProt (SwissProt) Recommended Name of Target Chain.10
+UniProt (SwissProt) Entry Name of Target Chain.10
+UniProt (SwissProt) Primary ID of Target Chain.10
+UniProt (SwissProt) Secondary ID(s) of Target Chain.10
+UniProt (SwissProt) Alternative ID(s) of Target Chain.10
+UniProt (TrEMBL) Submitted Name of Target Chain.10
+UniProt (TrEMBL) Entry Name of Target Chain.10
+UniProt (TrEMBL) Primary ID of Target Chain.10
+UniProt (TrEMBL) Secondary ID(s) of Target Chain.10
+UniProt (TrEMBL) Alternative ID(s) of Target Chain.10
+BindingDB Target Chain Sequence.11
+PDB ID(s) of Target Chain.11
+UniProt (SwissProt) Recommended Name of Target Chain.11
+UniProt (SwissProt) Entry Name of Target Chain.11
+UniProt (SwissProt) Primary ID of Target Chain.11
+UniProt (SwissProt) Secondary ID(s) of Target Chain.11
+UniProt (SwissProt) Alternative ID(s) of Target Chain.11
+UniProt (TrEMBL) Submitted Name of Target Chain.11
+UniProt (TrEMBL) Entry Name of Target Chain.11
+UniProt (TrEMBL) Primary ID of Target Chain.11
+UniProt (TrEMBL) Secondary ID(s) of Target Chain.11
+UniProt (TrEMBL) Alternative ID(s) of Target Chain.11
+BindingDB Target Chain Sequence.12
+PDB ID(s) of Target Chain.12
+UniProt (SwissProt) Recommended Name of Target Chain.12
+UniProt (SwissProt) Entry Name of Target Chain.12
+UniProt (SwissProt) Primary ID of Target Chain.12
+UniProt (SwissProt) Secondary ID(s) of Target Chain.12
+UniProt (SwissProt) Alternative ID(s) of Target Chain.12
+UniProt (TrEMBL) Submitted Name of Target Chain.12
+UniProt (TrEMBL) Entry Name of Target Chain.12
+UniProt (TrEMBL) Primary ID of Target Chain.12
+UniProt (TrEMBL) Secondary ID(s) of Target Chain.12
+UniProt (TrEMBL) Alternative ID(s) of Target Chain.12
