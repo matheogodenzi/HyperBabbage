@@ -1,8 +1,8 @@
 BindingDB Reactant_set_id
-Ligand SMILES
+SMILES_BindingDB
 Ligand InChI
-Ligand InChI Key
-BindingDB MonomerID
+InChI_Key_BindingDB
+BindingDB_ID_BindingDB
 BindingDB Ligand Name
 Target Name
 Target Source Organism According to Curator or DataSource
@@ -27,14 +27,14 @@ Link to Target in BindingDB
 Link to Ligand-Target Pair in BindingDB
 Ligand HET ID in PDB
 PDB ID(s) for Ligand-Target Complex
-PubChem CID
+PubChem_CID
 PubChem SID
-ChEBI ID of Ligand
-ChEMBL ID of Ligand
-DrugBank ID of Ligand
+ChEBI_ID_BindingDB
+ChEMBL_ID_BindingDB
+DrugBank_ID
 IUPHAR_GRAC ID of Ligand
-KEGG ID of Ligand
-ZINC ID of Ligand
+KEGG_ID
+ZINC_ID
 Number of Protein Chains in Target (>1 implies a multichain complex)
 BindingDB Target Chain Sequence
 PDB ID(s) of Target Chain
@@ -192,3 +192,20 @@ UniProt (TrEMBL) Entry Name of Target Chain.12
 UniProt (TrEMBL) Primary ID of Target Chain.12
 UniProt (TrEMBL) Secondary ID(s) of Target Chain.12
 UniProt (TrEMBL) Alternative ID(s) of Target Chain.12
+Unique_ID
+id
+name
+unii
+toxicity
+class_kingdom
+class_superclass
+synonyms
+categories
+patent_approved
+interaction
+ChEMBL_ID_DrugBank
+SMILES_DrugBank
+InChI_Key_DrugBank
+ChEBI_ID_DrugBank
+BindingDB_ID_DrugBank
+Matched_On
