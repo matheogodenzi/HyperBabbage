@@ -1,7 +1,8 @@
 from typing import List
 import pandas as pd
 import os
-import gc
+import numpy as np
+from tqdm import tqdm
 
 """
 The main idea:  We want to maximize the amount of data remaining after merge between BindingDB and DrugBank
@@ -34,13 +35,13 @@ class DrugBank_BindingDB_Merger:
         temp_file = 'temp.csv'
         identifiers = self._rename_cols_and_get_identifiers()
         before_left_merge = self._merge_dataframes_on_identifiers(identifiers, temp_file)
-
+        print("Part-1 is done")
         #2)
         self._left_join(before_left_merge)
         
         return self.merged_df
     
-    # Rename columns in BindingDB and in DrugBank to unify naming conventions
+    # Rename columns in BindingDB and in DrugBank to unify naming conventions and return identifiers
     def _rename_cols_and_get_identifiers(self) -> List[str]:
         
         self.binding_df.rename(columns={
@@ -88,18 +89,18 @@ class DrugBank_BindingDB_Merger:
 
     # Function to process and merge on each identifier individually
     def _merge_dataframes_on_identifiers(self,identifiers, output_file):
-        for identifier in identifiers:
+        for identifier in tqdm(identifiers):
             if identifier in self.binding_df.columns and identifier in self.drugbank_df.columns:
                 
                 # Drop rows with NaN in the identifier columns
-                binding_df_id = self.binding_df.dropna(subset=[identifier]).copy()
-                drugbank_df_id = self.drugbank_df.dropna(subset=[identifier]).copy()
+                binding_df_id = self.binding_df.dropna(subset=[identifier])
+                drugbank_df_id = self.drugbank_df.dropna(subset=[identifier])
                 
                 # Convert identifier columns to string to avoid type mismatches
-                binding_df_id.loc[:, identifier] = binding_df_id[identifier].astype(str)
-                drugbank_df_id.loc[:, identifier] = drugbank_df_id[identifier].astype(str)
+                binding_df_id[identifier] = binding_df_id[identifier].astype(str)
+                drugbank_df_id[identifier] = drugbank_df_id[identifier].astype(str)
                 
-                # Perform the merge
+                # Perform the merge with inner join
                 merged_df = pd.merge(
                     binding_df_id, drugbank_df_id, 
                     on=identifier, 
@@ -137,4 +138,4 @@ class DrugBank_BindingDB_Merger:
         self.merged_df = binding_readded[cols_to_keep]
 
     def save_merged(self, output_file):
-        self.merged_df.to_csv(output_file, index=False)
+        self.merged_df.to_parquet(output_file, index=False)

@@ -3,6 +3,18 @@ import re
 from typing import List
 import pandas as pd
 
+"""
+preprocessing.py contains every class that handles preprocessing the BindingDB or the merged dataframe with DrugBank
+
+    -> ColumnCleaningStrategy: Used to collect strategies that are used to cleaning the features
+        -> CleanNumericAtrributesStrategy: Checks numeric columns and does the following:
+            -> Replaces NaN values with the given new_class (default: -1)
+            -> The values represented in not only numbers but with characters are cleaned: >21 -> 21
+            -> values are stored in float
+
+    -> Preprocessing: Gets a list of strategies and executes them
+
+"""
 class ColumnCleaningStrategy(ABC):
 
     @abstractmethod
@@ -40,7 +52,7 @@ class CleanNumericAtrributesStrategy(ColumnCleaningStrategy):
         binding_ligand_efficency_cols = affinity_cols + ec_ic + bind_unbind
         filtered_df = df.copy()
         for af_col in binding_ligand_efficency_cols:
-            filtered_df[af_col] = filtered_df[af_col].apply(lambda x: self.keep_just_numeric(x, np.NaN))
+            filtered_df[af_col] = filtered_df[af_col].apply(lambda x: self.keep_just_numeric(x))
         
         return filtered_df
         
