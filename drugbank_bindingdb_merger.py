@@ -35,7 +35,6 @@ class DrugBank_BindingDB_Merger:
         temp_file = 'temp.csv'
         identifiers = self._rename_cols_and_get_identifiers()
         before_left_merge = self._merge_dataframes_on_identifiers(identifiers, temp_file)
-        print("Part-1 is done")
         #2)
         self._left_join(before_left_merge)
         
