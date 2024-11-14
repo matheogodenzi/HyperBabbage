@@ -1,3 +1,2 @@
 BindingDB_All_3D.sdf
-data/
-!data/medical/full_database.xml
+data/*
