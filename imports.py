@@ -1,3 +1,4 @@
+from os.path import join
 DATA_RAW = 'data/raw/'
 DATA_CLEAN = 'data/clean/'
 
@@ -9,3 +10,4 @@ DRUGBANK_CSV = DATA_RAW + 'parsed_DrugBank.csv'
 
 MERGED = DATA_CLEAN + 'merged_dataframe.pkl'
 
+DOI_DF_PATH = DATA_CLEAN +'df_doi.pkl'

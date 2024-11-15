@@ -38,7 +38,7 @@ class Preprocessing:
         new_df = pd.DataFrame(index=old_df.index)
         for stragegy in self.strategies:
             stragegy.run(old_df, new_df)
-        return new_df
+        return new_df.convert_dtypes()
     
     def get_used_old_columns(self):
         return [strategy.old_column_name for strategy in self.strategies]
