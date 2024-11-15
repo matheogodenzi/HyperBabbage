@@ -20,12 +20,22 @@ class DrugParser:
         return self.parse_drugs
     
     def parse_proteins(self):
+        all_proteins = []
         for i in tqdm(range(len(self.drugs))):
             drug = self.drugs[i]
             proteins = self._parse_proteins(drug)
-            self.parsed_proteins.extend(proteins)
+            all_proteins.extend(proteins)
 
-        return self.parse_proteins
+        # Remove duplicates
+        cleaned_proteins = []
+        unique_prots = set()
+        for prot in all_proteins:
+            if prot['swissprot_protein_id'] not in unique_prots:
+                unique_prots.add(prot['swissprot_protein_id'])
+                cleaned_proteins.append(prot)
+
+        self.parsed_proteins = cleaned_proteins
+        return self.parsed_proteins
     
     def _parse_proteins(self, drug):
         proteins = []
@@ -49,15 +59,7 @@ class DrugParser:
 
                             proteins.append(proteins_attributes)
 
-        # Remove duplicates
-        cleaned_proteins = []
-        unique_prots = set()
-        for prot in proteins:
-            if prot['swissprot_protein_id'] not in unique_prots:
-                unique_prots.add(prot['swissprot_protein_id'])
-                cleaned_proteins.append(prot)
-
-        return cleaned_proteins
+        return proteins
     
     def _parse_drug_properties(self, drug):
         idDB = drug[0].text # Drug Bank ID
