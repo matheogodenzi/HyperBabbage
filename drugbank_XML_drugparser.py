@@ -10,6 +10,7 @@ class DrugParser:
 
         self.drugs = list(root)
         self.parsed_drugs = []
+        self.parsed_proteins = []
     
     def parse_drugs(self):
         for i in tqdm(range(len(self.drugs))):
@@ -17,6 +18,48 @@ class DrugParser:
             drug_properties = self._parse_drug_properties(drug)
             self.parsed_drugs.append(drug_properties)
         return self.parse_drugs
+    
+    def parse_proteins(self):
+        all_proteins = []
+        for i in tqdm(range(len(self.drugs))):
+            drug = self.drugs[i]
+            proteins = self._parse_proteins(drug)
+            all_proteins.extend(proteins)
+
+        # Remove duplicates
+        cleaned_proteins = []
+        unique_prots = set()
+        for prot in all_proteins:
+            if prot['swissprot_protein_id'] not in unique_prots:
+                unique_prots.add(prot['swissprot_protein_id'])
+                cleaned_proteins.append(prot)
+
+        self.parsed_proteins = cleaned_proteins
+        return self.parsed_proteins
+    
+    def _parse_proteins(self, drug):
+        proteins = []
+        for i in drug:
+            if 'targets' in str(i): # drug's categories
+                target_features = list(i)
+                for features in target_features:
+                    for feature in features:
+                        if 'polypeptide' in str(feature):
+                            proteins_attributes = {}
+                            proteins_attributes['swissprot_protein_id'] = feature.get('id')
+                            for attribute in list(feature):
+                                if 'name' in str(attribute):
+                                    proteins_attributes['name'] = attribute.text
+                                if 'general-function' in str(attribute):
+                                    proteins_attributes['general-function'] = attribute.text
+                                if 'specific-function' in str(attribute):
+                                    proteins_attributes['specific-function'] = attribute.text
+                                if 'organism' in str(attribute):
+                                    proteins_attributes['organism'] = attribute.text
+
+                            proteins.append(proteins_attributes)
+
+        return proteins
     
     def _parse_drug_properties(self, drug):
         idDB = drug[0].text # Drug Bank ID
@@ -89,11 +132,14 @@ class DrugParser:
             
         return drug_properties
         
-    def save_parsed_drugs(self, output_file, return_df = False):
+    def save_parsed_drugs(self, output_file_drugs, output_file_proteins, return_df = False):
         parsed_drugs_df = pd.DataFrame(self.parsed_drugs)
-        parsed_drugs_df.to_csv(output_file, index=False, encoding='utf-8')
+        parsed_drugs_df.to_pickle(output_file_drugs)
+
+        parsed_proteins_df = pd.DataFrame(self.parsed_proteins)
+        parsed_proteins_df.to_pickle(output_file_proteins)
 
         if return_df:
-            return parsed_drugs_df
+            return parsed_drugs_df, parsed_proteins_df
         return None
     
