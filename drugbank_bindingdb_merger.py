@@ -33,6 +33,9 @@ class DrugBank_BindingDB_Merger:
 
         #1)
         temp_file = 'temp.csv'
+        if os.path.exists(temp_file):
+            os.remove(temp_file)
+
         identifiers = self._rename_cols_and_get_identifiers()
         before_left_merge = self._merge_dataframes_on_identifiers(identifiers, temp_file)
         #2)
@@ -43,46 +46,50 @@ class DrugBank_BindingDB_Merger:
     # Rename columns in BindingDB and in DrugBank to unify naming conventions and return identifiers
     def _rename_cols_and_get_identifiers(self) -> List[str]:
         
-        self.binding_df.rename(columns={
-            'PubChem CID': 'PubChem_CID',
-            'ChEBI ID of Ligand': 'ChEBI_ID',
-            'ChEMBL ID of Ligand': 'ChEMBL_ID',
-            'DrugBank ID of Ligand': 'DrugBank_ID',
-            'KEGG ID of Ligand': 'KEGG_ID',
-            'ZINC ID of Ligand': 'ZINC_ID',
-            'Ligand SMILES': 'SMILES',
-            'Ligand InChI Key': 'InChI_Key',
-            'BindingDB MonomerID': 'BindingDB_ID',
-        }, inplace=True)
+        # self.binding_df.rename(columns={
+        #     'PubChem CID': 'PubChem_CID',
+        #     'ChEBI ID of Ligand': 'ChEBI_ID',
+        #     'ChEMBL ID of Ligand': 'ChEMBL_ID',
+        #     'DrugBank ID of Ligand': 'DrugBank_ID',
+        #     'KEGG ID of Ligand': 'KEGG_ID',
+        #     'ZINC ID of Ligand': 'ZINC_ID',
+        #     'Ligand SMILES': 'SMILES',
+        #     'Ligand InChI Key': 'InChI_Key',
+        #     'BindingDB MonomerID': 'BindingDB_ID',
+        # }, inplace=True)
 
         self.drugbank_df.rename(columns={
-            'chebi': 'ChEBI_ID',
-            'chembl': 'ChEMBL_ID',
-            'pubchem': 'PubChem_CID',
-            'PubChem Substance': 'PubChem_SID',
-            'DrugBank IDs': 'DrugBank_ID',
-            'bindingdb': 'BindingDB_ID',
-            'ZINC': 'ZINC_ID',
-            'SMILES': 'SMILES',
-            'InChI': 'InChI_Key',
-            'KEGG Compound': 'KEGG_ID'
+            'chebi': 'chebi_id',
+            'chembl': 'chembl_id',
+            'pubchem': 'pubchem_cid',
+            'PubChem Substance': 'pubchem_sid',
+            'id': 'drugbank_id',
+            'bindingdb': 'bindingdb_id',
+            'ZINC': 'zinc_id',
+            'SMILES': 'smiles',
+            'InChI': 'inchi_key',
+            'KEGG Compound': 'kegg_id'
         }, inplace=True)
+
 
         self.binding_df['Unique_ID'] = np.arange(len(self.binding_df))
 
         # List of identifiers to merge on
         identifiers = [
-            'PubChem_CID',
-            'PubChem_SID',
-            'ChEBI_ID',
-            'ChEMBL_ID',
-            'DrugBank_ID',
-            'BindingDB_ID',
-            'ZINC_ID',
-            'SMILES',
-            'InChI',
-            'InChI_Key'
+            'pubchem_cid',
+            'chebi_id',
+            'chembl_id',
+            'drugbank_id',
+            'bindingdb_id',
+            # 'zinc_id',
+            'smiles',
+            # 'inchi',
+            'inchi_key'
         ]
+
+        for id in identifiers:
+            assert id in self.binding_df.columns, f'{id} not in BindingDB'
+            assert id in self.drugbank_df.columns, f'{id} not in DrugBank'
         
         return identifiers
 
@@ -111,6 +118,7 @@ class DrugBank_BindingDB_Merger:
                     # Add a column to indicate which identifier was matched
                     merged_df['Matched_On'] = identifier
                     
+                    print('run')
                     # Write to CSV in append mode
                     merged_df.to_csv(
                         output_file, 
@@ -119,6 +127,7 @@ class DrugBank_BindingDB_Merger:
                         header=not os.path.exists(output_file)
                     )
         return_df =  pd.read_csv(output_file)
+        return_df.drop_duplicates(subset=['Unique_ID'], inplace=True)
         os.remove(output_file)
         return return_df
 
@@ -135,6 +144,3 @@ class DrugBank_BindingDB_Merger:
 
         # Keep only the columns in cols_to_keep
         self.merged_df = binding_readded[cols_to_keep]
-
-    def save_merged(self, output_file):
-        self.merged_df.to_parquet(output_file, index=False)

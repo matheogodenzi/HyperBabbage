@@ -83,7 +83,7 @@ class DrugParser:
                     if str(ext[0].text) == 'PubChem Substance':
                         drug_properties['pubchem'] = ext[1].text
                     if str(ext[0].text) == 'BindingDB':
-                        drug_properties['bindingdb'] = ext[1].text
+                        drug_properties['bindingdb'] = int(ext[1].text)
 
             ## Data on proteins (if it is related to cancer or not ) can be added
             
